@@ -1,0 +1,1 @@
+rootProject.name = "MDP-MGC-2026"
