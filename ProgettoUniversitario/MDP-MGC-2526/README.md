@@ -1,81 +1,39 @@
-# 📌 Nome del Progetto
+# 📚 MetodologieProgettoScolastico
 
-Breve descrizione del progetto (2-3 righe):  
-Spiega cosa fa il programma e a cosa serve.
+Progetto universitario sviluppato per il corso di **Metodologie di Progetto** presso l'Università degli Studi di Camerino.
 
----
+## 👨‍💻 Autore
+Kevin Ferrari
 
-## 🚀 Come eseguire il progetto
+## 📌 Descrizione
 
-### Prerequisiti
-- Java 25 (LTS)
+Questo repository contiene il materiale relativo al progetto accademico, comprensivo di:
+
+- Analisi dei requisiti
+- Progettazione del sistema
+- Implementazione software
+- Documentazione tecnica
+- Eventuali diagrammi UML
+- Codice sorgente del progetto
+
+## 🛠️ Tecnologie Utilizzate
+
+A seconda dello sviluppo del progetto:
+
+- Java
+- IntelliJ IDEA
 - Gradle
+- Git & GitHub
+- UML
 
-### Istruzioni
+## 📁 Struttura del Progetto
 
-```bash
-git clone <url-del-repository>
-cd <nome-cartella>
-```
-
-### Build del progetto
-```bash
-./gradlew build
-```
-
-### Esecuzione
-```bash
-./gradlew run
-```
-
----
-
-## 🤖 Uso di strumenti di AI
-
-Indicare **se e come** sono stati utilizzati strumenti di AI (es. ChatGPT, Copilot, ecc.).
-Descrivere in modo chiaro **per quali attività** e **con quale livello di intervento personale**.
-
-È importante dimostrare che:
-* il codice è stato **compreso**
-* l’AI è stata usata come **supporto**, non come sostituto
----
-
-📌 Per una descrizione più dettagliata dell’uso dell’AI, utilizzare la **Wiki del repository**.
-
-
-### Esempi :
-
-* Utilizzato ChatGPT per:
-
-  * comprendere concetti teorici (es. differenza tra classi e oggetti)
-  * chiarire errori di compilazione
-  * suggerimenti su struttura del codice
-
-* Utilizzato Copilot per:
-
-  * autocompletamento di metodi semplici
-  * generazione di codice ripetitivo (es. getter/setter)
-
-* Utilizzato ChatGPT per generare una prima versione di una funzione, poi:
-
-  * modificata e adattata manualmente
-  * testata e corretta personalmente
-
----
-
-Oppure:
-- Non sono stati utilizzati strumenti di AI
-
----
-
-
-## ⚠️ Nota
-
-Questo è un template: **modificare e adattare tutte le parti necessarie** in base al proprio progetto
-
-
-
-
-
-
-
+```text
+MetodologieProgettoScolastico/
+│── ProgettoUniversitario/
+│   └── MDP-MGC-2526/
+│       ├── src/
+│       ├── build.gradle
+│       └── ...
+│
+└── README.md
