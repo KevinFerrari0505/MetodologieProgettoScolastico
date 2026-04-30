@@ -34,4 +34,11 @@ public class Corso {
                     + " (matricola " + studente.getMatricola() + ")");
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Corso other)) return false;
+        return nome.equalsIgnoreCase(other.nome);
+    }
 }

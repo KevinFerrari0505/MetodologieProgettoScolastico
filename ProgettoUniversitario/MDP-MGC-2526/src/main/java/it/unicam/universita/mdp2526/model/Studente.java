@@ -28,4 +28,12 @@ public class Studente extends Persona {
     public Libretto getLibretto() {
         return libretto;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Studente)) return false;
+        Studente other = (Studente) obj;
+        return this.matricola == other.matricola;
+    }
 }

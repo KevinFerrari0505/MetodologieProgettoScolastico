@@ -47,7 +47,7 @@ public class Esame
 
         if(esameSuperato(voto))
         {
-//            registraEsito(studente, voto);
+            //registraEsito(studente, voto);
             stampaEsameRegistrato();
         }
         else
@@ -81,5 +81,12 @@ public class Esame
         System.out.println("Esame di " + nome);
         System.out.println("Studente: " + studente.getNomeCompleto());
         System.out.println("Voto assegnato: " + FormattatoreVoto.formatta(voto));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Esame other)) return false;
+        return nome.equalsIgnoreCase(other.nome);
     }
 }
