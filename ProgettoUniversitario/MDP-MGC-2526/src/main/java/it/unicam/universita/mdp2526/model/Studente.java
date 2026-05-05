@@ -1,5 +1,7 @@
 package it.unicam.universita.mdp2526.model;
 
+import java.util.Objects;
+
 public class Studente extends Persona {
 
     private final int matricola;
@@ -35,5 +37,10 @@ public class Studente extends Persona {
         if (!(obj instanceof Studente)) return false;
         Studente other = (Studente) obj;
         return this.matricola == other.matricola;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(matricola);
     }
 }

@@ -4,6 +4,8 @@ import it.unicam.universita.mdp2526.interfaces.Valutatore;
 import it.unicam.universita.mdp2526.utils.EsameSuperato;
 import it.unicam.universita.mdp2526.utils.FormattatoreVoto;
 
+import java.util.Objects;
+
 public class Esame
 {
     private String nome;
@@ -88,5 +90,11 @@ public class Esame
         if (this == o) return true;
         if (!(o instanceof Esame other)) return false;
         return nome.equalsIgnoreCase(other.nome);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(nome);
     }
 }
