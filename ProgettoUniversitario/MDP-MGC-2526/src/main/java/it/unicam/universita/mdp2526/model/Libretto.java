@@ -52,6 +52,7 @@ public class Libretto implements CalcolatoreMedia, StampaEsameSuperati {
     @Override
     public double calcolaMedia()
     {
+        //Uso dello stream
         return (int) voti.values().stream().
                 mapToInt(voto -> voto == 31 ? 30 : voto)
                 .average()

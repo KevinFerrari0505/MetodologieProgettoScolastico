@@ -1,78 +1,54 @@
 package it.unicam.universita.mdp2526;
 
-import it.unicam.universita.mdp2526.interfaces.Valutatore;
 import it.unicam.universita.mdp2526.model.*;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.io.*;
+
 import java.util.List;
-import java.util.Set;
-
-import com.google.gson.Gson;
-import it.unicam.universita.mdp2526.utils.EsameSuperato;
-
-import javax.lang.model.util.ElementScanner6;
 
 public class Main {
 
-    public static void main(String[] args)
+    public static void main(String[] args) {
+        Professore prof = new Professore("Mario", "Rossi", "Informatica");
+
+        Esame programmazione = new Esame("Programmazione", prof);
+        Esame algoritmi = new Esame("Algoritmi", prof);
+        Esame basiDati = new Esame("Basi di dati", prof);
+
+        Studente giulia = new Studente("Giulia", "Bianchi", 1001);
+        Studente marco = new Studente("Marco", "Verdi", 1002);
+        Studente sara = new Studente("Sara", "Neri", 1003);
+
+        giulia.getLibretto().registraEsameSuperato(programmazione, 30);
+        giulia.getLibretto().registraEsameSuperato(algoritmi, 29);
+        giulia.getLibretto().registraEsameSuperato(basiDati, 31);
+
+        marco.getLibretto().registraEsameSuperato(programmazione, 24);
+        marco.getLibretto().registraEsameSuperato(algoritmi, 27);
+        marco.getLibretto().registraEsameSuperato(basiDati, 26);
+
+        sara.getLibretto().registraEsameSuperato(programmazione, 28);
+        sara.getLibretto().registraEsameSuperato(algoritmi, 30);
+        sara.getLibretto().registraEsameSuperato(basiDati, 29);
+
+        List<Studente> studenti = List.of(giulia, marco, sara);
+
+        ReportStudenti report = new ReportStudenti();
+        report.stampaStudentiConMediaAlta(studenti);
+    }
+
+    public static Object formattaStudente(Studente studente)
     {
-        //2° MAIN
-        Studente s1 = new Studente("Kevin", "Ferrari", 130668);
-        Professore p1 = new Professore("Luca", "Bianchi", "Informatica");
+        return studente.getNomeCompleto() + " Media: " + studente.getLibretto().calcolaMedia();
+    }
 
-        Esame esame1 = new Esame("Programmazione", p1);
-        Esame esame2 = new Esame("Fondamenti", p1);
+    public static boolean haMediaAlta(Studente studente)
+    {
+        return studente.getLibretto().calcolaMedia() >= 28;
+    }
 
-        s1.getLibretto().registraEsameSuperato(esame1, 18);
-        s1.getLibretto().registraEsameSuperato(esame2, 30);
-        int voto = s1.getLibretto().getVoto(new Esame("Programmazione", p1));
-
-        System.out.println("Voto trovato: " + voto);
-//
-//        Corso corso = new Corso("Metodologie di Programmazione", p1);
-//        Studente s1 = new Studente("Anna", "Rossi", 1001);
-//
-//        //EFFETTO DI EQUALS SULLE COLLEZIONI
-//        Studente s2 = new Studente("Anna", "Rossi", 1001);
-//        Set<Studente> iscritti = new HashSet<>();
-//        iscritti.add(s1);
-//        iscritti.add(s2);
-//        //System.out.println(iscritti.contains(s2)); //--> true
-//        //iscritti.remove(s2);
-//        System.out.println(iscritti.size()); //--> 0 con equals perchè lo rimuove, altrimenti non rimuove nulla
-//        //System.out.println(iscritti.indexOf(s2)); //--> 0 con equals, -1 altrimenti
-//
-//
-//        Gson gson = new Gson();
-//        Gson gson2 = new Gson();
-//        //FILEREADER
-//        Studente studenteDaJsonFS;
-//        try ( FileReader reader = new FileReader("C:\\Users\\win 11\\Desktop\\ProgettoUniversitario\\MetodologieProgettoScolastico\\ProgettoUniversitario\\MDP-MGC-2526\\src\\main\\resources\\studente.json")) {
-//            studenteDaJsonFS = gson.fromJson(reader, Studente.class);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        //INPUTSTREAM
-//        InputStream is2 = Main.class.getClassLoader().getResourceAsStream("studente.json"); //legge byte
-//        InputStreamReader reader2 = new InputStreamReader(is2); //li trasforma in caratteri
-//        Studente studenteDaJsonResources = gson2.fromJson(reader2, Studente.class);
-//
-//        corso.iscriviStudente(s1);
-//        corso.iscriviStudente(s1);
-//        corso.stampaIscritti();
-//
-//        s1.presentati();
-//        p1.presentati();
-//
-//        System.out.println(studenteDaJsonFS.equals(studenteDaJsonResources));
-//        System.out.println(studenteDaJsonFS.equals(s1));
-//        System.out.println(s1.equals(studenteDaJsonResources));
-
-
+    public static int confrontaPerMediaDecrescente(Studente studente, Studente studente1)
+    {
+        return Double.compare(studente.getLibretto().calcolaMedia(), studente1.getLibretto().calcolaMedia());
     }
 }
