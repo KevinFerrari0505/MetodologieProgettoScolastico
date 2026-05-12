@@ -50,18 +50,12 @@ public class Libretto implements CalcolatoreMedia, StampaEsameSuperati {
     }
 
     @Override
-    public double calcolaMedia() {
-        if (voti.isEmpty()) {
-            return 0;
-        }
-
-        int somma = 0;
-
-        for (int voto : voti.values()) {
-            somma += (voto == 31) ? 30 : voto;
-        }
-
-        return somma / voti.size();
+    public double calcolaMedia()
+    {
+        return (int) voti.values().stream().
+                mapToInt(voto -> voto == 31 ? 30 : voto)
+                .average()
+                .orElse(0);
     }
 
     @Override
